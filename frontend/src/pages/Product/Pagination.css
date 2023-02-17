@@ -1,0 +1,25 @@
+.active {
+  background-color: #2ecf2b;
+  color: white;
+  border: none;
+}
+
+.pagination__container {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 50px;
+}
+
+.pagination__container button:hover {
+  background-color: #80c57f;
+  color: white;
+}
+
+.pagination__container button {
+  border-radius: 3px;
+  border: none;
+  color: none;
+  min-width: 32px;
+  min-height: 32px;
+}

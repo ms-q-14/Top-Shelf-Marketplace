@@ -1,0 +1,40 @@
+.auctions__tabs {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.auctions__tabs__header {
+  display: flex;
+}
+
+.auctions__tabs__tab {
+  flex: 1;
+  text-align: center;
+  padding: 12px 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000;
+  cursor: pointer;
+}
+
+.auctions__tabs__tab--active {
+  border-bottom: 2px solid #4caf50;
+  color: #4caf50;
+}
+
+.auctions__tabs__panel {
+  padding: 24px;
+}
+
+.auctions__blurb {
+  font-size: 35px;
+  font-weight: 800;
+  margin-top: 20px;
+}
+
+.auction__category__cards {
+  display: flex;
+  gap: 20px;
+  justify-content: space-around;
+}

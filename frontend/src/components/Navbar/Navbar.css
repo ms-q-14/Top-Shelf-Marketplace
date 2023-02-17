@@ -1,0 +1,154 @@
+.navbar {
+  height: 70px;
+  width: 100%;
+}
+
+.navbar-wrapper {
+  position: fixed;
+  width: 101%;
+  padding: 0.25rem 0;
+  display: flex;
+  justify-content: space-around;
+  top: 0;
+  left: -8px;
+  z-index: 10;
+  background-color: white;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.left {
+  display: flex;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchBar {
+  width: 700px;
+  height: 44px;
+  border-radius: 15px;
+  padding-left: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.right {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+}
+
+.link {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  height: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.loginButton {
+  border-radius: 5px;
+  border: none;
+  background-color: #9ea59c;
+  font-weight: bold;
+}
+
+.registerButton {
+  background-color: #80c57f;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+}
+
+.notification {
+  position: relative;
+  display: flex;
+}
+
+.notificationNumber {
+  font-size: 11px;
+  width: 18px;
+  height: 18px;
+  border-radius: 100%;
+  background-color: #2879fe;
+  color: white;
+  position: absolute;
+  right: -2px;
+  top: -4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile__cirle {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border: 0.1px solid black;
+  border-radius: 50%;
+  position: relative;
+}
+
+.profile__circle__img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.profile__dropdown__container {
+  left: -130px;
+  margin-top: 1px;
+  padding: 0.25rem;
+  border: #9ea59c 1px solid;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  width: 200px;
+  position: absolute;
+  row-gap: 20px;
+}
+
+.profile__dropdown__container div:hover {
+  /* border: 1px solid black; */
+  background-color: #dfdfdf;
+  width: 100%;
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+
+.browse {
+  cursor: pointer;
+}
+
+.navbar__cart {
+  max-width: 40px;
+}
+
+.navbar__notification__bell {
+  max-width: 40px;
+}
+
+.cart {
+  display: flex;
+}
+
+.navbar__streams {
+  max-width: 50px;
+  display: flex;
+}
+
+@media (min-width: 600px) {
+}

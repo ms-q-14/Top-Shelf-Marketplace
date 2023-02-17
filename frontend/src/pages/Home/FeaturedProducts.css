@@ -1,0 +1,21 @@
+.featured {
+  margin-top: 40px;
+  font-size: 25px;
+  text-decoration: none;
+  color: none;
+}
+.featured__green {
+  text-decoration: none;
+  color: #80c57f;
+}
+
+.featured__green:hover {
+  text-decoration: underline;
+}
+
+.featured_list {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}

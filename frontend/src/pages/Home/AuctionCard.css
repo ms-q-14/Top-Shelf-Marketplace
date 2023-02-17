@@ -1,0 +1,61 @@
+.auction_list {
+  display: flex;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+}
+
+.auction_list::-webkit-scrollbar {
+  display: none;
+}
+
+.auction_card {
+  margin-top: 30px;
+  transform: scale(0.9);
+}
+
+.auction_preview {
+  display: flex;
+  transition: all 0.2s ease-in-out;
+}
+
+.auction_preview:hover {
+  transform: translate(10px, -10px);
+  box-shadow: -10px 10px 0 #80c57f, 0 10px 0 #80c57f;
+}
+
+.auction_host {
+  display: flex;
+}
+
+.auction_host_data {
+  display: flex;
+  position: relative;
+  padding-top: 5px;
+}
+
+.auction_desc {
+  padding-left: 15px;
+}
+
+.auction_title {
+  font-weight: 700;
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.host {
+  color: #53535f;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.category {
+  color: #53535f;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.auction_card__image {
+  width: 100%;
+}

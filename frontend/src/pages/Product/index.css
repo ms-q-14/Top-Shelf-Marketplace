@@ -1,0 +1,36 @@
+.category__cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  column-gap: 0.1px;
+  /* margin: 0 450px; */
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  min-width: fit-content;
+}
+
+.product_loader {
+  width: 40vw;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+}
+
+.category__header {
+  margin: 1rem;
+}
+
+.category__header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #80c57f;
+}
+
+.products__container {
+  /*css styling so that the children are stack on top of each other and are all the same width*/
+  width: fit-content;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}

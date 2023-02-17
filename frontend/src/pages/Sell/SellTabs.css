@@ -1,0 +1,31 @@
+.tabs__container {
+  margin-top: 20px;
+}
+
+.sell__tabs {
+  display: flex;
+  flex-direction: column;
+}
+
+.sell__tabs__header {
+  display: flex;
+}
+
+.sell__tabs__tab {
+  flex: 1;
+  text-align: center;
+  padding: 12px 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000;
+  cursor: pointer;
+}
+
+.sell__tabs__tab--active {
+  border-bottom: 2px solid #4caf50;
+  color: #4caf50;
+}
+
+.sell__tabs__panel {
+  padding: 24px;
+}

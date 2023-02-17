@@ -1,0 +1,26 @@
+.liveAuctions {
+  margin-top: 40px;
+  font-size: 25px;
+  text-decoration: none;
+  color: none;
+}
+.liveAuctions__green {
+  text-decoration: none;
+  color: #80c57f;
+}
+
+.liveAuctions__green:hover {
+  text-decoration: underline;
+}
+
+.auction_list {
+  display: flex;
+  max-width: 90vw;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+}
+
+.auction__list__card {
+  max-width: 20%;
+}

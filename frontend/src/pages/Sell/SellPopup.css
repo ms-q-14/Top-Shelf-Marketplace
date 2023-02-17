@@ -1,0 +1,172 @@
+.sell__button__container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: end;
+}
+
+.sell__button {
+  background-color: #80c57f;
+  border-radius: 5px;
+  border: none;
+  font-family: "Khula", sans-serif;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.sell__button:hover {
+  border: 1px solid black;
+}
+
+.popup__container {
+  position: fixed;
+  margin: auto;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background: rgb(255, 255, 255);
+  width: 50vw;
+  min-height: fit-content;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.close__button {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 40px;
+  margin-right: 40px;
+  cursor: pointer;
+}
+
+.form__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+}
+
+.featuredList__preview {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.featuredCard__preview {
+  position: relative;
+  background-color: var(--color-grey-primary);
+  margin: 1rem;
+  flex: 1 0 25rem;
+  box-shadow: 0.1rem 0.2rem 0.5rem #dcdcdc;
+  margin: 1rem;
+  max-width: 15rem;
+  max-height: 17rem;
+  transition: 0.2s;
+}
+
+.featuredCard__preview:hover {
+  transform: translateY(-0.5rem);
+  box-shadow: 0.5rem 0.75rem 1.5rem #bbbbbb;
+}
+
+.featuredImage__preview {
+  margin-top: 2rem;
+  max-width: 100%;
+  height: auto;
+  max-height: 125px;
+}
+
+.featuredImage-wrapper__preview {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.featuredCard__cart__preview {
+  position: absolute;
+  right: 0;
+  margin: 1rem;
+  font-size: 2rem;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.featuredCard__wishlist__preview {
+  position: absolute;
+  right: 3rem;
+  margin: 1rem;
+  font-size: 2rem;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.featuredCard__fastSelling__preview {
+  position: absolute;
+  font-size: 2rem;
+  left: 0;
+  margin: 1rem;
+  fill: var(--color-orange-primary);
+}
+
+.featuredCard__content__preview {
+  margin: 1rem;
+}
+
+.featuredName__preview {
+  font-weight: 250;
+  font-size: 0.9rem;
+}
+
+.displayStack__1__preview {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.featuredPrice__preview {
+  font-size: 1.5rem;
+  font-weight: 200;
+}
+
+.featuredSales__preview,
+.featuredTime__preview {
+  font-size: 1.1rem;
+}
+
+.mini__logo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+  padding-bottom: 30px;
+  max-width: 80px;
+}
+
+.list__item__button {
+  background-color: #80c57f;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 10px;
+}
+
+.list__item__button:hover {
+  border: 1px solid black;
+}
+
+.sell__headers {
+  font-size: 20px;
+}
+
+.sell__input {
+  border: none;
+  border-bottom: 1px solid grey;
+  box-shadow: rgb(0 0 0 / 25%) 0px 14px 28px, rgb(0 0 0 / 22%) 0px 10px 10px;
+}
+
+.sell__categories {
+  border: none;
+  border-bottom: 1px solid grey;
+}

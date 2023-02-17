@@ -1,0 +1,16 @@
+#carouselImg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1200px;
+  height: 400px;
+  object-fit: cover;
+  overflow: hidden;
+  right: 0px;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.carousel {
+  padding-top: 60px;
+}

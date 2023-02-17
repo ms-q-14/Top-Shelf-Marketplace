@@ -1,0 +1,143 @@
+networks:
+  my_network:
+    driver: bridge
+
+services:
+  nginx-service:
+    image: sahilhakimi/topshelf-nginx:latest
+    ports:
+      - 80:80
+      - 1935:1935
+      - 443:443
+    depends_on:
+      - identity-service
+      - client-service
+      - product-service
+      - cart-service
+      - live-service
+    networks:
+      - my_network
+    volumes:
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
+      - ./data/nginx:/etc/nginx/conf.d  
+    entrypoint : "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'" 
+  certbot:
+    image: certbot/certbot
+    networks:
+      - my_network
+    volumes:
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+  client-service:
+    image: sahilhakimi/topshelf-frontend:latest
+    networks:
+      - my_network
+  live-service:
+    image: sahilhakimi/topshelf-live:latest
+    networks:
+      - my_network
+    depends_on:
+      - identity-service
+      - mongodb_container
+    environment:
+      MONGO_URI: ${MONGO_URI}/Streams?authSource=admin
+      SECRET_KEY: ${SECRET_KEY}
+      LIVE_SERVICE: live-service
+      IDENTITY_SERVICE: identity-service
+  identity-service:
+    image: sahilhakimi/topshelf-identity:latest
+    environment:
+      TOKEN_KEY: ${TOKEN_KEY}
+      REFRESH_TOKEN_KEY: ${REFRESH_TOKEN_KEY}
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      MONGO_URI: ${MONGO_URI}/Users?authSource=admin
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
+      REDIS_HOST: cache
+      REDIS_PORT: 6379
+      clientUrl: http://client-service:5173
+    depends_on:
+      - mongodb_container
+      - cache
+    networks:
+      - my_network
+  product-service:
+    image: sahilhakimi/topshelf-product:latest
+    environment:
+      TOKEN_KEY: ${TOKEN_KEY}
+      REFRESH_TOKEN_KEY: ${REFRESH_TOKEN_KEY}
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      MONGO_URI: ${MONGO_URI}/Products?authSource=admin
+      KAFKA_HOST: kafka:9092
+    depends_on:
+      - mongodb_container
+      - kafka
+    networks:
+      - my_network
+  cart-service:
+    image: sahilhakimi/topshelf-cart:latest
+    environment:
+      TOKEN_KEY: ${TOKEN_KEY}
+      REFRESH_TOKEN_KEY: ${REFRESH_TOKEN_KEY}
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
+      REDIS_HOST: cache
+      REDIS_PORT: 6379
+      KAFKA_HOST: kafka:9092
+      PRODUCT_SERVICE: product-service
+    depends_on:
+      - cache
+      - kafka
+    networks:
+      - my_network
+  mongodb_container:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb_data_container:/data/db
+    networks:
+      - my_network
+  cache:
+    image: redis:6.2-alpine
+    restart: always
+    ports:
+      - "6379:6379"
+    command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+    volumes:
+      - cache:/data
+    networks:
+      - my_network
+
+  zookeeper:
+    image: zookeeper:latest
+    networks:
+      - my_network
+  kafka:
+    image: wurstmeister/kafka:latest
+    networks:
+      - my_network
+    ports:
+      - 29092:29092
+    environment:
+      KAFKA_LISTENERS: EXTERNAL_SAME_HOST://:29092,INTERNAL://:9092
+      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka:9092,EXTERNAL_SAME_HOST://localhost:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,EXTERNAL_SAME_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+      KAFKA_CREATE_TOPICS: "addToCart:1:1,invalidCartProduct:1:1"
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+      KAFKA_HEAP_OPTS: "-Xmx256M -Xms128M"
+      KAFKA_JVM_PERFORMANCE_OPTS: " -Xmx256m -Xms256m"
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+    depends_on:
+      - zookeeper
+
+volumes:
+  mongodb_data_container:
+  cache:
+    driver: local

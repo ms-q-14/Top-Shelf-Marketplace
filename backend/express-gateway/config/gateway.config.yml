@@ -1,0 +1,237 @@
+http:
+  port: 8080
+https:
+  port: 8443
+  tls:
+    "default":
+      key: ./certs/key.pem
+      cert: ./certs/cert.pem
+admin:
+  port: 9876
+  host: localhost
+apiEndpoints:
+  api:
+    host: localhost
+    paths: "/ip"
+  user:
+    host: localhost
+    paths: ["/api/user", "/api/user/*"]
+  product:
+    host: localhost
+    paths: ["/api/product", "/api/product/*"]
+  cart:
+    host: localhost
+    paths: ["/api/cart", "/api/cart/*"]
+  livestream:
+    host: localhost
+    paths: ["/api/stream", "/api/stream/*"]
+serviceEndpoints:
+  httpbin:
+    url: "https://httpbin.org"
+  identityService:
+    url: ${identityUrl:-"http:localhost:3000"}
+  productService:
+    url: ${productUrl:-"http://localhost:3001"}
+  cartService:
+    url: ${cartUrl:-"http://localhost:3002"}
+  streamService:
+    url: ${streamUrl:-"http://localhost:3003"}
+policies:
+  - basic-auth
+  - cors
+  - expression
+  - key-auth
+  - log
+  - oauth2
+  - proxy
+  - rate-limit
+pipelines:
+  default:
+    apiEndpoints:
+      - api
+    policies:
+      - cors:
+          - action:
+              origin: ${clientUrl"}
+              methods: "HEAD,PUT,PATCH,POST,DELETE,OPTIONS"
+              allowedHeaders:
+                [
+                  "Content-type",
+                  "Authorization",
+                  "Origin",
+                  "Access-Control-Allow-Origin",
+                  "Accept",
+                  "Options",
+                  "X-Requested-With",
+                ]
+              exposedHeaders:
+                [
+                  "Content-type",
+                  "Authorization",
+                  "Origin",
+                  "Access-Control-Allow-Origin",
+                  "Accept",
+                  "Options",
+                  "X-Requested-With",
+                ]
+              credentials: true
+              preflightContinue: true
+              optionsSuccessStatus: 204
+      # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+      # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: httpbin
+              changeOrigin: true
+  identityPipeline:
+    apiEndpoints:
+      - user
+    policies:
+      - log: # policy name
+          - action: # array of condition/actions objects
+              message: ${req.method} ${req.originalUrl} # parameter for log action
+      - cors:
+          - action:
+              origin: ${clientUrl}
+              methods: "HEAD,PUT,PATCH,POST,DELETE,OPTIONS"
+              allowedHeaders:
+                [
+                  "Content-type",
+                  "Authorization",
+                  "Origin",
+                  "Access-Control-Allow-Origin",
+                  "Accept",
+                  "Options",
+                  "X-Requested-With",
+                ]
+              exposedHeaders:
+                [
+                  "Content-type",
+                  "Authorization",
+                  "Origin",
+                  "Access-Control-Allow-Origin",
+                  "Accept",
+                  "Options",
+                  "X-Requested-With",
+                ]
+              credentials: true
+              preflightContinue: true
+              optionsSuccessStatus: 204
+      - proxy:
+          - action:
+              serviceEndpoint: identityService
+              changeOrigin: true
+  productPipeline:
+    apiEndpoints:
+      - product
+    policies:
+      - log: # policy name
+          - action: # array of condition/actions objects
+              message: ${req.method} ${req.originalUrl} # parameter for log action
+      - cors:
+          - action:
+              origin: ${clientUrl}
+              methods: "HEAD,PUT,PATCH,POST,DELETE,OPTIONS"
+              allowedHeaders:
+                [
+                  "Content-type",
+                  "Authorization",
+                  "Origin",
+                  "Access-Control-Allow-Origin",
+                  "Accept",
+                  "Options",
+                  "X-Requested-With",
+                ]
+              exposedHeaders:
+                [
+                  "Content-type",
+                  "Authorization",
+                  "Origin",
+                  "Access-Control-Allow-Origin",
+                  "Accept",
+                  "Options",
+                  "X-Requested-With",
+                ]
+              credentials: true
+              preflightContinue: true
+              optionsSuccessStatus: 204
+      - proxy:
+          - action:
+              serviceEndpoint: productService
+              changeOrigin: true
+  cartPipeline:
+    apiEndpoints:
+      - cart
+    policies:
+      - log: # policy name
+          - action: # array of condition/actions objects
+              message: ${req.method} ${req.originalUrl} # parameter for log action
+      - cors:
+          - action:
+              origin: ${clientUrl}
+              methods: "HEAD,PUT,PATCH,POST,DELETE,OPTIONS"
+              allowedHeaders:
+                [
+                  "Content-type",
+                  "Authorization",
+                  "Origin",
+                  "Access-Control-Allow-Origin",
+                  "Accept",
+                  "Options",
+                  "X-Requested-With",
+                ]
+              exposedHeaders:
+                [
+                  "Content-type",
+                  "Authorization",
+                  "Origin",
+                  "Access-Control-Allow-Origin",
+                  "Accept",
+                  "Options",
+                  "X-Requested-With",
+                ]
+              credentials: true
+              preflightContinue: true
+              optionsSuccessStatus: 204
+      - proxy:
+          - action:
+              serviceEndpoint: cartService
+              changeOrigin: true
+  streamPipeline:
+    apiEndpoints:
+      - livestream
+    policies:
+      - log: # policy name
+          - action: # array of condition/actions objects
+              message: ${req.method} ${req.originalUrl} # parameter for log action
+      - cors:
+          - action:
+              origin: ${clientUrl}
+              methods: "HEAD,PUT,PATCH,POST,DELETE,OPTIONS"
+              allowedHeaders:
+                [
+                  "Content-type",
+                  "Authorization",
+                  "Origin",
+                  "Access-Control-Allow-Origin",
+                  "Accept",
+                  "Options",
+                  "X-Requested-With",
+                ]
+              exposedHeaders:
+                [
+                  "Content-type",
+                  "Authorization",
+                  "Origin",
+                  "Access-Control-Allow-Origin",
+                  "Accept",
+                  "Options",
+                  "X-Requested-With",
+                ]
+              credentials: true
+              preflightContinue: true
+              optionsSuccessStatus: 204
+      - proxy:
+          - action:
+              serviceEndpoint: streamService
+              changeOrigin: true

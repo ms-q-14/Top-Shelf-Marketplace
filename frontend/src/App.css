@@ -1,0 +1,10 @@
+.page_container {
+  position: relative;
+  min-height: 100vh;
+  margin: 0px 45px;
+  font-family: "Khula", sans-serif;
+}
+
+button {
+  cursor: pointer;
+}

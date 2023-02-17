@@ -1,0 +1,156 @@
+@media all and (min-width: 480px) {
+  .login__container {
+    width: 35rem;
+    height: 45rem;
+    margin-right: 15rem;
+    background: rgba(255, 255, 255, 0.24);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .login__logo {
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  .login__page {
+    background-image: url("https://media.discordapp.net/attachments/965061604024672256/1057570030012870716/e48b3567571689992cda62866a35937a-transformed.jpeg");
+
+    /* Full height */
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    position: fixed;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .login__container__content {
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+  }
+
+  .login__greeting {
+    margin-bottom: 1rem;
+  }
+
+  .login__container__content span {
+    font-size: 2.5rem;
+    margin: none;
+    font-weight: 800;
+    letter-spacing: 0.1rem;
+    color: #fff;
+    white-space: nowrap;
+  }
+
+  .login__subtitle span {
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+    color: rgb(255, 255, 255);
+    margin-bottom: 1rem;
+    white-space: nowrap;
+  }
+
+  .login__input {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5rem;
+  }
+
+  .login__input input {
+    font-size: 1.5rem;
+    font-weight: 400;
+    padding-left: 1rem !important;
+  }
+
+  .login__input span {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+    color: rgb(255, 255, 255);
+    white-space: nowrap;
+  }
+
+  .login__input input {
+    border: black solid 2px;
+    height: 3rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+      rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    background: rgba(255, 255, 255, 0.24);
+    outline: none;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+
+    color: #fff;
+  }
+
+  .login__checkbox {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+    color: rgb(255, 255, 255);
+    white-space: nowrap;
+  }
+
+  .login__forget__password {
+    margin-top: 2rem;
+  }
+
+  .login__forget__password a {
+    font-size: 1rem;
+    font-weight: 1000;
+    letter-spacing: 0.1rem;
+    color: linear-gradient(315deg, #f8fffd 0%, #98de5b 74%);
+    white-space: nowrap;
+    text-decoration: none;
+  }
+
+  .login__buttons {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 4rem;
+  }
+
+  .login__button {
+    width: 47%;
+    height: 5rem;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+
+    background: linear-gradient(315deg, #08e1ae 0%, #98de5b 74%);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    border: 1px solid rgba(121, 232, 115, 0.3);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+
+  .login__button span {
+    font-size: 1.5rem;
+    font-weight: 700;
+
+    color: #fff;
+    white-space: nowrap;
+  }
+}

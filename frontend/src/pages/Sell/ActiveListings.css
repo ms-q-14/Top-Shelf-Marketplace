@@ -1,0 +1,20 @@
+.active__listings__container {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.active__listings__image {
+  width: 200px;
+  height: 200px;
+  margin-right: 30px;
+  object-fit: contain;
+}
+
+.active__listings__text__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  font-size: 20px;
+}

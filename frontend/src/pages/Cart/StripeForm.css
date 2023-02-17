@@ -1,0 +1,53 @@
+.payment__form__container {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  min-width: 300px;
+  gap: 20px;
+  top: 0;
+  bottom: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.checkout__address {
+  color: #87bbfd;
+  font-weight: 900;
+  font-size: 16px;
+  border: none;
+  background-image: none;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  font-size: "16px";
+}
+
+.payment__form__total {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #87bbfd;
+}
+
+.input__inline ::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #87bbfd;
+  opacity: 1; /* Firefox */
+}
+
+.input:focus {
+  outline: none;
+}
+
+.input__inline {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.input__inline input {
+  max-width: 100px;
+}

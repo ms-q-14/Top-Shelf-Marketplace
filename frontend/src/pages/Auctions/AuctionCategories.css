@@ -1,0 +1,23 @@
+.auction__category__image {
+  max-height: 250px;
+  min-height: 250px;
+  transition: all 0.2s ease-in-out;
+  object-fit: fill;
+}
+.auction__category__image:hover {
+  transform: translate(10px, -10px);
+  box-shadow: -10px 10px 0 #80c57f, 0 10px 0 #80c57f;
+}
+
+.auction__category__title {
+  font-size: 20px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auction__category__container {
+  max-width: 185px;
+  margin-top: 20px;
+}

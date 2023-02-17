@@ -1,0 +1,16 @@
+{
+  "name": "express-gateway",
+  "description": "Express Gateway Instance Bootstraped from Command Line",
+  "repository": {},
+  "license": "UNLICENSED",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "devStart": "export NODE_EXTRA_CA_CERTS=./certs/combined-certs.pem && node server.js",
+    "windowsStart": "set NODE_EXTRA_CA_CERTS=./certs/combined-certs.pem && node server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express-gateway": "^1.16.11"
+  }
+}

@@ -1,0 +1,126 @@
+.listingList {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.listingCard {
+  position: relative;
+  background-color: var(--color-grey-primary);
+  margin: 2rem;
+  padding: 2rem;
+  flex: 1 0 25rem;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0.1rem 0.2rem 0.5rem #dcdcdc;
+  align-items: center;
+}
+
+.listingCard:hover {
+  /* transform: translateY(-0.5rem); */
+  box-shadow: 0.5rem 0.75rem 1.5rem #bbbbbb;
+}
+
+.listingImage {
+  height: auto;
+  height: 150px;
+}
+
+.listingImage-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.listingCard__cart {
+  position: absolute;
+  right: 0;
+  margin: 1rem;
+  font-size: 2rem;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.listingCard__wishlist {
+  position: absolute;
+  right: 3rem;
+  margin: 1rem;
+  font-size: 2rem;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.listingCard__fastSelling {
+  position: absolute;
+  font-size: 2rem;
+  left: 0;
+  margin: 1rem;
+  fill: var(--color-orange-primary);
+}
+
+.listingCard__content {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  margin-left: 3rem;
+}
+
+.listing__edit {
+  display: flex;
+  justify-content: end;
+}
+.listing__submit {
+  display: flex;
+  justify-content: space-between;
+}
+
+.listingName {
+  font-weight: 550;
+  font-size: 1.25rem;
+  text-transform: capitalize;
+}
+
+.listingCategory {
+  font-weight: 350;
+  font-size: 1rem;
+}
+
+.listingDate {
+  margin-top: 1rem;
+  font-weight: 350;
+  font-size: 1rem;
+}
+
+.displayStack__1 {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+}
+
+.listingPrice {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: rgb(34, 183, 34);
+}
+
+.listingSales,
+.listingTime {
+  font-size: 1.1rem;
+}
+
+.listingCategory__edit {
+  width: fit-content;
+}
+<<<<<<< HEAD
+
+.edit__icon {
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.edit__icon:hover {
+  color: rgb(136, 133, 133);
+}
+=======
+>>>>>>> master

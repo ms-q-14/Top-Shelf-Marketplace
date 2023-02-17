@@ -1,0 +1,40 @@
+version: "3.7"
+services:
+  identity-service:
+    image: sahilhakimi/topshelf-identity:latest
+    environment:
+      TOKEN_KEY: 7e44d0deaa035296b0cb10b3ea46ac627707e51c277908b609c0739d1adafc22e7e543faf9d43028ae64cccdf506e7994a1b0075880aae61a6cdb87d087bc082759a12c398d7e3291fd54539f1b260c7a5f6c79e2c4d586a180ed42b93866583c8da85acf261939d2171ef4b18765a205ee35f8cd1b989a8473589642176f6d1
+      REFRESH_TOKEN_KEY: b7fb9c5209f55dc4b50d0faef5b4a0b3bdaa81db1e813779ef6c064de0a934e0c2e027fe5e2a9ab7b6d6c06a5d7099ccd837f7698ba9b5a8bee5e1acd86823c0eb29945d4965fe0db59d95c2defb60dbebb1b034dd22132115f14a50e175bd44bc919a91b7b6731e25908fc3b8800d06e90c6b1288b42c8b2378c2a619931e33
+      AWS_ACCESS_KEY_ID: AKIATQAAJCDKIHEBIK5B
+      AWS_SECRET_ACCESS_KEY: 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
+      MONGO_URI: mongodb://root:rootpassword@mongodb_container:27017/Users?authSource=admin
+      REDIS_PASSWORD: eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+      REDIS_HOST: cache
+      REDIS_PORT: 6379
+    depends_on:
+      - mongodb_container
+      - cache
+    ports:
+      - 3000:3000
+  mongodb_container:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb_data_container:/data/db
+  cache:
+    image: redis:6.2-alpine
+    restart: always
+    ports:
+      - "6379:6379"
+    command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+    volumes:
+      - cache:/data
+
+volumes:
+  mongodb_data_container:
+  cache:
+    driver: local

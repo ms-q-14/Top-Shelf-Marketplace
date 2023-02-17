@@ -1,0 +1,83 @@
+.featuredList {
+  display: flex;
+  /* justify-content: space-between; */
+}
+
+.featuredCard {
+  position: relative;
+  background-color: var(--color-grey-primary);
+  margin: 1rem;
+  width: 15rem;
+  box-shadow: 0.1rem 0.2rem 0.5rem #dcdcdc;
+  max-height: 17rem;
+}
+
+.featuredCard:hover {
+  transform: translateY(-0.5rem);
+  box-shadow: 0.5rem 0.75rem 1.5rem #bbbbbb;
+}
+
+.featuredImage {
+  margin-top: 2rem;
+  max-width: 100%;
+  height: auto;
+  max-height: 125px;
+}
+
+.featuredImage-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.featuredCard__cart {
+  position: absolute;
+  right: 0;
+  margin: 1rem;
+  font-size: 2rem;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.featuredCard__wishlist {
+  position: absolute;
+  right: 3rem;
+  margin: 1rem;
+  font-size: 2rem;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.featuredCard__fastSelling {
+  position: absolute;
+  font-size: 2rem;
+  left: 0;
+  margin: 1rem;
+  fill: var(--color-orange-primary);
+}
+
+.featuredCard__content {
+  margin: 1rem;
+}
+
+.featuredName {
+  font-weight: 250;
+  font-size: 0.75rem;
+}
+
+.displayStack__1 {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.featuredPrice {
+  font-size: 1.5rem;
+  font-weight: 200;
+}
+
+.featuredSales,
+.featuredTime {
+  font-size: 1.1rem;
+}
