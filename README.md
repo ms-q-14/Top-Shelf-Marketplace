@@ -10,7 +10,7 @@
     Where the hunt for collectibles never ends - live auctions every day
     <br/>
     <br/>
-    <a href="http://134.122.32.62/"><strong>View Live Demo »</strong></a>
+    <a href="https://top-shelf.tech/"><strong>View Live Demo »</strong></a>
     <br/>
     <br/>
   </p>
